@@ -170,7 +170,7 @@ the website, in dark theme
 
 .section__title,
 .section__title-center{
-  font-size: var(--h2-font-size);
+  font-size: var(--h1-font-size);
   margin-bottom: var(--mb-2);
   line-height: 140%;
 }

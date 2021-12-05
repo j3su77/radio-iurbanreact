@@ -1,18 +1,16 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore , { Autoplay, Pagination} from 'swiper';
 import { RiFacebookFill, RiInstagramFill, RiTwitterFill, RiArrowRightDownLine } from "react-icons/ri"
-import homeImg from "../../assets/images/home.png"
 import parlanteImg from "../../assets/images/spikerpro.png"
 import radioImg from "../../assets/images/oldradio.png"
 import fireImg from "../../assets/images/fire.png"
 
-import SwiperCore, { Autoplay, Pagination} from 'swiper';
 import "./homesection.css"
 import 'swiper/swiper-bundle.min.css'
 import 'swiper/swiper.min.css'
 
-import { EffectFade } from 'swiper';
 
-SwiperCore.use([Autoplay, Pagination, EffectFade]);
+SwiperCore.use([Autoplay, Pagination  ]);
 
 
 const HomeSection = () => {
@@ -22,8 +20,6 @@ const HomeSection = () => {
 
             
             <Swiper className="home__container container grid"
-            
-            scrollbar
              spaceBetween={50}
              slidesPerView={1}
              pagination={{ clickable: true, el: ".swiper-pagination", }}
@@ -36,7 +32,7 @@ const HomeSection = () => {
              onSwiper={(swiper) => console.log(swiper)}
             >
                 {/* ---------------- slide 1 ---------------- */}
-                <SwiperSlide className="swiperclass">
+                <SwiperSlide style={{ backgroundPosition: 'center', backgroundSize: 'cover'}} className="swiperclass">
                 <img src={radioImg} alt="" className="home__img" />
                 
                 <div class="home__data">

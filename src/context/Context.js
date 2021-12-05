@@ -12,8 +12,8 @@ export const Context = createContext(INITIAL_STATE);
 
 export const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(Reducer, INITIAL_STATE);
-  const apiURL = "http://18.118.93.166/api"
-  const apiUrlImg = "http://18.118.93.166/images/"
+  const apiURL = "http://129.159.116.65:8080/api"
+  const apiUrlImg = "http://129.159.116.65:8080/images/"
   // const apiUrlImg = "http://localhost:4000/images/"
 
   useEffect(() => {

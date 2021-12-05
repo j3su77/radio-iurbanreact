@@ -72,14 +72,14 @@ const AudioPlayer = () => {
               {isPlaying ? (
                 <Marquee gradient={false} speed={50} className="overflow-hidden">
                   <span style={{ marginLeft: "300px" }}>
-                    <RiRadioFill className="mx-3" />
+                    
                     Sonando iurbanradio
-                    <RiRadioFill className="mx-3" />
+                  
                   </span>
                   <span style={{ marginLeft: "300px" }}>
-                    <RiRadioFill className="mx-3" />
+                    
                     Sonando iurbanradio
-                    <RiRadioFill className="mx-3" />
+                  
                   </span>
                 </Marquee>
               ) : (

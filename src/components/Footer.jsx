@@ -12,7 +12,7 @@ const Footer = () => {
       <div class="footer__content-logo container">
         <a href="#" class="footer__logo">
           <RiLeafLine classNameName="footer__logo-icon" />
-          Plantex
+          iUrban Radio
         </a>
 
         <div class="box">

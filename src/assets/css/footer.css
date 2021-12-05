@@ -120,27 +120,27 @@
 }
 
 .red {
-    background-color: #FF5852;
+    background-color: var(--title-color);
   }
   
   .orange {
-    background-color: #FF9000;
+    background-color: var(--blue-color);
   }
   
   .yellow {
-    background-color: #FFD300;
+    background-color: var(--main-color);
   }
   
   .green {
-    background-color: #3DCD49;
+    background-color: var(--title-color);
   }
   
   .blue {
-    background-color: #0089D7;
+    background-color: var(--blue-color);
   }
   
   .purple {
-    background-color: #9E44C4;
+    background-color: var(--main-color);
   }
 
 

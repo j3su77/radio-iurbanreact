@@ -1,11 +1,13 @@
 import HomeSection from "./HomeSection"
-import ProductsSection from "./ProductsSection"
+import PostSection from "./PostSection"
+import Footer from "../../components/Footer"
 
 const Home = () => {
     return (
         <main className="main">
         <HomeSection />
-        <ProductsSection />
+        <PostSection />
+        <Footer />
         </main>
     )
 }

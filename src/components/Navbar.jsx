@@ -4,6 +4,7 @@ import { FaBars } from "react-icons/fa";
 import { GiColombianStatue } from "react-icons/gi";
 
 import "../assets/css/navbar.css";
+import { Link } from "react-router-dom";
 //  import '../assets/js/main';
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -53,25 +54,7 @@ const Navbar = () => {
 
 
       
-/*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
-const sections = document.querySelectorAll('section[id]')
 
-function scrollActive(){
-    const scrollY = window.pageYOffset
-
-    sections.forEach(current =>{
-        const sectionHeight = current.offsetHeight,
-         sectionTop = current.offsetTop - 58,
-         sectionId = current.getAttribute('id')
-
-        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
-        }else{
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
-        }
-    })
-}
-window.addEventListener('scroll', scrollActive)
 
 
 
@@ -79,19 +62,19 @@ window.addEventListener('scroll', scrollActive)
     <>
       <header className={`header ${scrolledTrue && "scroll-header"}`} id="header">
         <nav className="nav container">
-          <a href="#" className="nav__logo">
+          <Link to="/" className="nav__logo">
             {/* <RiLeafLine classNameName="nav__logo-icon" /> */}
             <GiColombianStatue classNameName="nav__logo-icon" />
             iUrban Radio
-          </a>
+          </Link>
 
           <div className={`nav__menu ${open && "show-menu"} `} id="nav-menu">
             <ul className="nav__list" onClick={handleClick}>
               {/* <!-- _____home______ --> */}
               <li className="nav__item">
-                <a href="#home" className="nav__link">
+                <Link to="/" className="nav__link">
                   Home
-                </a>
+                </Link>
               </li>
               {/* <!-- _____About______ --> */}
               <li className="nav__item">

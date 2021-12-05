@@ -133,7 +133,7 @@
   position: absolute;
   background: rgb(10 10 10 / 66%);
   height: 52px;
-  background: rgba(255, 255, 255, 0.05);
+  
   -webkit-backdrop-filter: blur(2px);
           backdrop-filter: blur(2px);
   border: 2px solid rgba(255, 255, 255, 0.2);
@@ -196,12 +196,12 @@
   width: 45px;
   height: 45px;
   top: -33px;
-  background: #161517 !important;
+  background: var(--main-color);
   padding-left: 7px;
   padding-top: 3px;
   border-radius: 50%;
   margin: auto;
-  border: 5px solid #48ec11;
+  border: 5px solid var(--blue-color);
   margin-left: -24px;
 }
 .audio-controls .play path {
