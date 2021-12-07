@@ -10,6 +10,7 @@ import { MdCancel } from "react-icons/md";
 import Category from "./Category";
 
 import "../assets/css/singlepost.css"
+import Spinner from "./Spinner";
 
 const SinglePost = () => {
   const location = useLocation();
@@ -20,18 +21,23 @@ const SinglePost = () => {
   const [desc, setDesc] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
   const [cats, setCats] = useState([]);
+ 
+
 
   const fecha = new Date(post.createdAt).toDateString();
 
   const temp = [];
 
   useEffect(() => {
+    
     const getPost = async () => {
       try {
+      
         const res = await axios.get(`${apiURL}/posts/${path}`);
         setPost(res.data);
         setTitle(res.data.title);
         setDesc(res.data.desc);
+       
         temp(res.data.categories);
       } catch (error) {
         console.log(error);
@@ -43,16 +49,28 @@ const SinglePost = () => {
 
 
 
-
   var catTrue = [];
 
+
+
+
   useEffect(() => {
+
+   
     const fetchCats = async () => {
-      const res = await axios.get(apiURL + "/categories");
-      setCats(res.data);
-      console.log(res);
+      try {
+        const res = await axios.get(apiURL + "/categories");
+        setCats(res.data);
+      
+        console.log(res);
+      } catch (error) {
+        console.log(error);
+      
+      }
     };
     fetchCats();
+
+   
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -102,7 +120,7 @@ const SinglePost = () => {
   };
 
   return (
-    post && (
+    post.username ? (
       <>
         <div
           className={`grid`}
@@ -233,7 +251,7 @@ const SinglePost = () => {
           )}
         </div>
       </>
-    )
+    ) :  <div className="content__spinner"><Spinner /> </div>
   );
 };
 

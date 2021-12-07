@@ -2,3 +2,16 @@
     margin: auto;
     
 }
+
+.content__spinner {
+    width: 100vw;
+    height: 90vh;
+  position: relative;
+}
+
+.content__spinner .spinner {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+  
+}
