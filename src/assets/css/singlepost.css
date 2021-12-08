@@ -1,5 +1,6 @@
 .singlepost__content-img {
   grid-template-columns: 1fr;
+  line-height:0;
 }
 
 .singlepost__img {
@@ -13,7 +14,7 @@
   background-color: var(--main-color);
   align-items: center;
   padding: 0 2rem;
-  margin-top: -5px;
+
 }
 
 .postsingle__content-edit, 

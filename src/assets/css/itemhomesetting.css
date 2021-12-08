@@ -1,0 +1,124 @@
+.itemhomesetting__form {
+    margin-top: 2rem;
+   
+
+}
+.itemhomesetting__content-img {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+   
+    justify-content: center;
+}
+
+.itemhomesetting__img {
+    max-width: 260px;
+    max-height: 260px;
+    object-fit: cover;
+}
+
+
+
+.itemhomesetting__img-icon {
+    font-size: 10rem;
+    justify-self: center;
+}
+
+.itemhomesetting__icon {
+    margin-right: .7rem;
+    font-size: 1.2rem;
+}
+
+.itemhomesetting__content-title, 
+.itemhomesetting__content-description {
+    width: 100%;
+}
+.itemhomesetting__description {
+    height: 7rem;
+    font-weight: 400;
+}
+
+
+/*------ checkbox ----*/
+
+.itemhomesetting__checkbox {
+    width: 100%;
+
+   
+}
+
+.itemhomesetting__checkbox-reverse, 
+.itemhomesetting__checkbox-link {
+
+    align-items: center;
+    align-self: center;
+    display: flex;
+}
+
+
+.itemhomesetting__checkbox .span-text {
+    margin-left: 1rem;
+}
+
+.itemhomesetting__content-link {
+    width: 100%;
+}
+
+
+.itemhomesetting__checkbox input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+    
+  }
+  
+  .itemhomesetting__checkbox label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 2.2rem;
+    height: 1rem;
+    background: grey;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .itemhomesetting__checkbox label:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1rem;
+    height: 1rem;
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.3s;
+  }
+  
+  .itemhomesetting__checkbox input:checked + label {
+    background: #22ff35;
+  }
+  
+  .itemhomesetting__checkbox input:checked + label:after {
+    left: calc(100% - 0px);
+    transform: translateX(-100%);
+  }
+  
+  .itemhomesetting__checkbox  label:active:after {
+    width: 2rem;
+  }
+
+
+@media  screen and (min-width: 767px)  {
+    .itemhomesetting__img {
+        width: 300px;
+        height: 300px;
+        max-width: 300px;
+        max-height: 300px;
+        object-fit: cover;
+    }
+    
+}

@@ -29,7 +29,7 @@ const Footer = () => {
           <h3 class="footer__title">Our Address</h3>
 
           <ul class="footer__data">
-            <li class="footer__information">1234 - Peru</li>
+            <li class="footer__information">Soledad - Atlantico</li>
             <li class="footer__information">La Libertad - 43210</li>
             <li class="footer__information">123-456-789</li>
           </ul>
