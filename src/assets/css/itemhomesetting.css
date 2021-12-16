@@ -64,8 +64,19 @@
 
 .itemhomesetting__content-link {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.itemhomesetting__content-btn-submit {
+    display: flex;
+    width: 100%;
+    justify-content: center;
 }
 
+.itemhomesetting__btn-submit {
+    margin: 2rem 0;
+    justify-self: center;
+}
 
 .itemhomesetting__checkbox input[type=checkbox] {
     height: 0;
@@ -107,10 +118,38 @@
     transform: translateX(-100%);
   }
   
-  .itemhomesetting__checkbox  label:active:after {
+  .itemhomesetting__checkbox label:active:after {
     width: 2rem;
   }
 
+  .itemhomesetting__content-bnt-file {
+      position: relative;
+      display: inline-block;
+      max-width: 250px;
+  }
+
+
+  .file-select::before {
+    background-color: var(--first-color);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:  .5rem;
+    content: 'Seleccionar imagen'; /* testo por defecto */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+
+  .file-select input[type="file"] {
+    opacity: 0;
+    display: inline-block;
+  }
+
+ 
 
 @media  screen and (min-width: 767px)  {
     .itemhomesetting__img {
@@ -119,6 +158,10 @@
         max-width: 300px;
         max-height: 300px;
         object-fit: cover;
+    }
+    .itemhomesetting__content-link {
+     
+        flex-direction: row;
     }
     
 }

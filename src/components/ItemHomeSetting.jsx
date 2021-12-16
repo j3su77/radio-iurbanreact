@@ -3,6 +3,8 @@ import axios from "axios";
 import { Context } from "../context/Context";
 import { FaUpload } from "react-icons/fa";
 import { BiImageAdd } from "react-icons/bi";
+import FormInput from "../components/FormInput";
+
 
 import "../assets/css/itemhomesetting.css";
 const ItemHomeSetting = () => {
@@ -10,17 +12,20 @@ const ItemHomeSetting = () => {
   const [desc, setDesc] = useState("");
   const [file, setFile] = useState(null);
   const [link, setLink] = useState("");
-  const { user, apiURL } = useContext(Context);
+  const { user, apiURL, apiUrlImg } = useContext(Context);
   const [checkedLink, setCheckedLink] = useState(false);
   const [checkedReverse, setCheckedReverse] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const newPost = {
-      username: user.username,
+    const newItemHome = {
+      creator: user.username,
       title,
-      desc,
+      description: desc,
+      linkbtn: link,
+      button: checkedLink,
+      reverse: checkedReverse,
     };
     if (file) {
       const data = new FormData();
@@ -29,22 +34,22 @@ const ItemHomeSetting = () => {
       data.append("name", filename);
       data.append("file", file);
 
-      newPost.photo = filename;
+      newItemHome.photo = filename;
 
       try {
-        await axios.post(apiURL + "/upload", data);
+        await axios.post(apiURL + "/uploadhome", data);
       } catch (error) {}
       try {
-        const res = await axios.post(apiURL + "/posts", newPost);
-
-        window.location.replace("/post/" + res.data._id);
+        const res = await axios.post(apiURL + "/createitemhome", newItemHome);
+        console.log(res);
+        window.location.replace("/");
       } catch (error) {}
     }
   };
 
   return (
     <div className="itemhomesetting__container container grid">
-      <form className="itemhomesetting__form" onSubmit={handleSubmit}>
+      <form  className="itemhomesetting__form" onSubmit={handleSubmit}>
         <div className="itemhomesetting__content-img">
           {file && (
             <img
@@ -57,15 +62,18 @@ const ItemHomeSetting = () => {
             <>
               <BiImageAdd className="itemhomesetting__img-icon" />
 
-              <label class="">
-                <span class="button">
-                  <FaUpload className="itemhomesetting__icon" />
-                  Subir imagen
-                </span>
-                <input
+              <label className="itemhomesetting__content-bnt-file"  >
+
+   
+        {/*----------- file -------------*/}
+
+                <FormInput
+                 id="src-file1"
+                 required={true}
+                 errorMessage=
+                 "Por favor, selecciona una imagen" 
                   type="file"
-                  id="fileInput"
-                  class="hidden"
+                  className="file-select"
                   onChange={(e) => setFile(e.target.files[0])}
                 />
               </label>
@@ -74,7 +82,7 @@ const ItemHomeSetting = () => {
             <label class="button">
               <FaUpload class="itemhomesetting__icon" />
               cambiar una imagen
-              <input
+              <FormInput
                 type="file"
                 id="fileInput"
                 class="hidden"
@@ -87,11 +95,14 @@ const ItemHomeSetting = () => {
         {/*----------- title -------------*/}
         <div>
           <div class="form__group field itemhomesetting__content-title">
-            <input
+            <FormInput
+             required={true}
+             name="title"
               type="text"
-              placeholder="Titulo de la publicación"
               className="form__field itemhomesetting__title"
-              autoFocus={true}
+              errorMessage=
+                "El titulo deberia tener al menos 5 caracteres"
+             
               onChange={(e) => setTitle(e.target.value)}
             />
             <label for="name" class="form__label">
@@ -100,12 +111,18 @@ const ItemHomeSetting = () => {
           </div>
 
           <div className="form__group field itemhomesetting__content-description">
-            <textarea
+        {/*----------- description -------------*/}
+
+            <FormInput
+             required={true}
               className=" form__field itemhomesetting__description"
               placeholder="ingresa la informacion"
+              errorMessage=
+              "La descripción deberia tener al menos 5 caracteres"
               type="text"
+            
               onChange={(e) => setDesc(e.target.value)}
-            ></textarea>
+            />
             <label for="name" class="form__label">
               descripción
             </label>
@@ -114,15 +131,14 @@ const ItemHomeSetting = () => {
 
         <div className="itemhomesetting__checkbox">
           <div className="itemhomesetting__checkbox-reverse">
-            <input 
-            type="checkbox"
-             id="switchw" 
-             onChange={() => setCheckedReverse(!checkedReverse)}
-             />
-            
+            <input
+              type="checkbox"
+              id="switchw"
+              onChange={() => setCheckedReverse(!checkedReverse)}
+            />
+
             <label for="switchw">Toggle</label>
             <span className="span-text">invertir orden</span>
-            
           </div>
 
           <div className="itemhomesetting__checkbox-link">
@@ -133,26 +149,39 @@ const ItemHomeSetting = () => {
             />
             <label for="switch">Toggle</label>
             <span className="span-text">ingresar link</span>
-           
           </div>
         </div>
 
         <div class="form__group field itemhomesetting__content-link">
-          <input
-            type="text"
-            placeholder="Titulo de la publicación"
-            className="form__field itemhomesetting__title"
-            onChange={(e) => setLink(e.target.value)}
-            disabled={!checkedLink}
-          />
-          <label for="name" class="form__label">
-            link
-          </label>
+          {
+            checkedLink && (
+              <>
+        {/*----------- link -------------*/}
+
+              <FormInput
+              type="text"
+              placeholder=""
+              errorMessage=
+              "El link deberia tener al menos 5 caracteres."
+              className="form__field itemhomesetting__title"
+              onChange={(e) => setLink(e.target.value)}
+              required={true}
+           
+            />
+            <label for="name" class="form__label">
+              link
+            </label>
+            </>
+            )
+          }
+         
         </div>
 
-        <button type="submit" className="button">
-          Publicar
-        </button>
+        <div className="itemhomesetting__content-btn-submit">
+          <button type="submit" className="button itemhomesetting__btn-submit">
+            Publicar
+          </button>
+        </div>
       </form>
     </div>
   );

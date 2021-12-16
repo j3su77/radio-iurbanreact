@@ -1,4 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
+import { Context } from "../context/Context";
+
 import { RiLeafLine, RiCloseLine, RiMoonFill, RiSunFill } from "react-icons/ri";
 import { FaBars } from "react-icons/fa";
 import { GiColombianStatue } from "react-icons/gi";
@@ -7,12 +9,15 @@ import "../assets/css/navbar.css";
 import { Link } from "react-router-dom";
 //  import '../assets/js/main';
 const Navbar = () => {
+  const { user, apiUrlImg, dispatch } = useContext(Context);
   const [open, setOpen] = useState(false);
   const [dark, setDark] = useState(true);
+  const [openUser, setOpenUser] = useState(false);
+  const container = useRef(false);
   const [theme, setTheme] = useState(
     localStorage.getItem("selected-theme") || "light"
   );
-  const [scrolledTrue, setScrolledTrue] = useState(false)
+  const [scrolledTrue, setScrolledTrue] = useState(false);
 
   /*=============== OPEN/CLOSE MENU PHONE ===============*/
   const handleClick = () => {
@@ -40,33 +45,85 @@ const Navbar = () => {
     }
   }, [dark]);
 
-/*=============== SCROLL NAV VIEW SHADOW ===============*/
-    const toggleVisible = () => {
-        const scrolled = document.documentElement.scrollTop;
-        if (scrolled > 80){
-          setScrolledTrue(true)
-        } 
-        else if (scrolled <= 80){
-          setScrolledTrue(false)
-        }
-      };
-      window.addEventListener('scroll', toggleVisible);
+  /*=============== SCROLL NAV VIEW SHADOW ===============*/
+  const toggleVisible = () => {
+    const scrolled = document.documentElement.scrollTop;
+    if (scrolled > 80) {
+      setScrolledTrue(true);
+    } else if (scrolled <= 80) {
+      setScrolledTrue(false);
+    }
+  };
+  window.addEventListener("scroll", toggleVisible);
 
+  const handleButtonClick = () => {
+    setOpenUser(!openUser);
+  };
 
-      
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  });
 
+  const handleClickOutside = (e) => {
+    if (container.current && !container.current.contains(e.target)) {
+      setOpenUser(false);
+    }
+  };
 
-
+  const handleLogout = () => {
+    dispatch({ type: "LOGOUT" });
+  };
 
   return (
     <>
-      <header className={`header ${scrolledTrue && "scroll-header"}`} id="header">
+      <header
+        className={`header ${scrolledTrue && "scroll-header"}`}
+        id="header"
+      >
         <nav className="nav container">
           <Link to="/" className="nav__logo">
             {/* <RiLeafLine classNameName="nav__logo-icon" /> */}
-            <GiColombianStatue classNameName="nav__logo-icon" />
+            <GiColombianStatue className="nav__logo-icon" />
             iUrban Radio
           </Link>
+
+          {user && (
+            <div className="nav__user" ref={container}>
+              <img
+                onClick={handleButtonClick}
+                className="nav__user-img"
+                src={
+                  user && user.profilePic
+                    ? apiUrlImg + user.profilePic
+                    : "https://www.uic.mx/posgrados/files/2018/05/default-user.png"
+                }
+                alt=""
+              />
+
+              {openUser && (
+                <div class="nav__user-dropdown">
+                  <ul>
+                    <div className="nav__user-content-username">
+                      {user.username}
+                    </div>
+                    <Link to="/setting" className={"nav__user-item"}>
+                      Nuevo post
+                    </Link>
+                  
+                    <div
+                      onClick={handleLogout}
+                      className={
+                        "nav__user-item"
+                      }
+                    >
+                       Cerrar sesión
+                    </div>
+                  </ul>
+                </div>
+              )}
+            </div>
+          )}
 
           <div className={`nav__menu ${open && "show-menu"} `} id="nav-menu">
             <ul className="nav__list" onClick={handleClick}>
@@ -94,12 +151,7 @@ const Navbar = () => {
                   FAQs
                 </a>
               </li>
-              {/* <!-- _____Contact______ --> */}
-              <li className="nav__item">
-                <a href="#contact" className="nav__link">
-                  Contact Us
-                </a>
-              </li>
+           
             </ul>
 
             {open && (

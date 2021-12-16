@@ -1,0 +1,114 @@
+.formInput{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.form__group {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 50%;
+    margin: var(--mb-1-5) 0;
+  }
+  
+  .form__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 1.3rem;
+    color: #fff;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+  }
+  .form__field::placeholder {
+    color: transparent;
+  }
+  .form__field:placeholder-shown ~ .form__label {
+    font-size: var(--h2-font-size);
+    cursor: text;
+    top: 20px;
+  }
+  
+  .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+  }
+  
+  .form__field:focus {
+    padding-bottom: 6px;
+    font-weight: 500;
+    border-width: 3px;
+    border-color: var(--blue-color);
+    border-image-slice: 1;
+    
+  }
+  .label__focus {
+    color: red !important;
+    background-color: blue;
+  }
+  
+  /* reset input */
+  .form__field:required, .form__field:invalid {
+    box-shadow: none;
+  }
+  
+  
+  
+  
+
+.formInput-content input{
+    padding: 15px;
+    margin: 10px 0px;
+    color: var(--title-color);
+}
+
+
+.formInput-content .formInput input:focus ~ .formInput-content .formInput label{
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: var(--h1-font-size);
+  font-weight: 700;
+  color: var(--blue-color) !important;
+
+}
+
+.formInput-content span{
+    font-size: var(--small-font-size);
+    font-weight: var(--font-medium);
+    padding: 3px;
+    color: rgb(255, 56, 56);
+    display: none;
+}
+
+.formInput-content .formInput input:invalid[focused="true"]{
+    border-bottom: 2px solid red;
+}
+.formInput-content .formInput input[type="file"]:invalid[focused="true"]{
+    border: 1px solid gold;
+}
+
+.formInput input:invalid[focused="true"] ~ span{
+    display: block !important;
+}
+
+.formInput-content .formInput input[type="file"]:invalid[focused="true"] ~ span{
+    margin-top: 3rem;
+    position: absolute;
+    z-index: 99;
+    bottom: 0;
+    background-color: red;
+    width: 100%;
+    text-align: center;
+    color: var(--white);
+    border-radius: 0 0 .5rem .5rem;
+}
