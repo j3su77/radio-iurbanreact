@@ -10,7 +10,7 @@ import {  Context } from "./context/Context";
 import './App.css';
 
 import AudioPlayer from "./components/radio/AudioPlayer";
-import Setting from "./pages/settings/Setting";
+import EditCarousel from "./pages/settings/EditCarousel";
 
 function App() {
   const { user } = useContext(Context);
@@ -22,7 +22,7 @@ function App() {
 
        <Route exact path="/post/:postId" component={PostDetails} />
        <Route exact path="/login" component={user ? Home : Login} />
-       <Route exact path="/setting" component={user ? Setting : Login} />
+       <Route exact path="/editcarousel" component={user ? EditCarousel : Login} />
        <Route exact path="/" component={Home} />
       </Switch>
     

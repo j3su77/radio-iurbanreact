@@ -82,35 +82,23 @@ const Navbar = () => {
         id="header"
       >
         <nav className="nav container">
-          <Link to="/" className="nav__logo">
-            {/* <RiLeafLine classNameName="nav__logo-icon" /> */}
-            <GiColombianStatue className="nav__logo-icon" />
-            iUrban Radio
-          </Link>
 
-          {user && (
-            <div className="nav__user" ref={container}>
-              <img
-                onClick={handleButtonClick}
-                className="nav__user-img"
-                src={
-                  user && user.profilePic
-                    ? apiUrlImg + user.profilePic
-                    : "https://www.uic.mx/posgrados/files/2018/05/default-user.png"
-                }
-                alt=""
-              />
+         
 
               {openUser && (
-                <div class="nav__user-dropdown">
+                <div class="nav__user-dropdown"  ref={container}>
                   <ul>
                     <div className="nav__user-content-username">
                       {user.username}
                     </div>
-                    <Link to="/setting" className={"nav__user-item"}>
+                    <div  className=
+                        "nav__user-item">
+
+                    <Link to="/editcarousel" className={"nav__user-item"}>
                       Nuevo post
                     </Link>
-                  
+                    </div>
+
                     <div
                       onClick={handleLogout}
                       className={
@@ -122,10 +110,10 @@ const Navbar = () => {
                   </ul>
                 </div>
               )}
-            </div>
-          )}
+            
+        
 
-          <div className={`nav__menu ${open && "show-menu"} `} id="nav-menu">
+          <div className={`nav__menu  ${open && "show-menu"} `} id="nav-menu">
             <ul className="nav__list" onClick={handleClick}>
               {/* <!-- _____home______ --> */}
               <li className="nav__item">
@@ -151,7 +139,7 @@ const Navbar = () => {
                   FAQs
                 </a>
               </li>
-           
+
             </ul>
 
             {open && (
@@ -161,6 +149,7 @@ const Navbar = () => {
             )}
           </div>
 
+          {/* -----------item 1------------- */}
           <div className="nav__btns">
             {/* <!-- Theme change button --> */}
             {theme !== "light" ? (
@@ -178,17 +167,44 @@ const Navbar = () => {
                 name="theme-button"
               />
             )}
+          </div>
 
-            <div className="nav__toggle" id="nav-toggle">
+           {/* -----------item 2------------- */}
+           <div className="nav__content-userandlogo">
+          <Link to="/" className="nav__logo">
+            {/* <RiLeafLine classNameName="nav__logo-icon" /> */}
+            <GiColombianStatue className="nav__logo-icon" />
+            iUrban Radio
+          </Link>
+
+          {user && (
+            <div className="nav__user">
+              <img
+                onClick={handleButtonClick}
+                className="nav__user-img"
+                src={
+                  // user && user.profilePic
+                  //   ? apiUrlImg + user.profilePic
+                  //   : 
+                  "https://www.uic.mx/posgrados/files/2018/05/default-user.png"
+                }
+                alt=""
+              />
+        
+          </div>)}
+          </div>
+
+
+          {/* -----------item 3------------- */}
+          <div className="nav__toggle" id="nav-toggle">
               <FaBars onClick={handleClick} />
             </div>
-          </div>
         </nav>
       </header>
 
       {/* <Helmet>
         <script src="../assets/js/main.js"></script>
-        
+
       </Helmet> */}
     </>
   );

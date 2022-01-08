@@ -25,10 +25,13 @@ const SinglePost = () => {
 
 
   const fecha = new Date(post.createdAt).toDateString();
-
+  let isEdit  = post.createdAt === post.updatedAt;
   const temp = [];
 
+  
+
   useEffect(() => {
+   
     
     const getPost = async () => {
       try {
@@ -174,6 +177,14 @@ const SinglePost = () => {
               </div>
             </div>
           )}
+           {
+            !isEdit && (
+
+          <div className="postsingle__content-isedit">
+            Editado
+          </div>
+            )
+          }
           <div className="info__postsingle grid">
           <div className="postsingle__content-user">
             by:
@@ -184,8 +195,11 @@ const SinglePost = () => {
               </span>
             </Link>
           </div>
+          
+         
+
           <div className="postsingle__content-createddate">
-            creado:
+            Creado:
           <span className="postsingle__createddate">
                 {`  ${dateformat(fecha, "dd/ mm / yyyy")}`}{"   "}
                 

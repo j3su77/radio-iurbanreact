@@ -58,7 +58,7 @@
 
 .info__postsingle {
   grid-template-columns: repeat(2, 1fr);
-  padding: 0.7rem;
+  padding: 0.2rem 0.7rem;
 }
 
 .postsingle__content-user {
@@ -85,6 +85,12 @@
 .postsingle__content-createddate {
   text-align: end;
   font-size: var(--smaller-font-size);
+}
+
+.postsingle__content-isedit {
+  font-size: var(--smaller-font-size);
+  text-align: end;
+  padding-right: 0.7rem;
 }
 
 .singlepost__title {

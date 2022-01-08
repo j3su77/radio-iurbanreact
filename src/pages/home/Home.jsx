@@ -1,11 +1,11 @@
-import HomeSection from "./HomeSection"
+ import HomeSection from "./HomeSection"
 import PostSection from "./PostSection"
 import Footer from "../../components/Footer"
 
 const Home = () => {
     return (
         <main className="main">
-        <HomeSection />
+         <HomeSection /> 
         <PostSection />
         <Footer />
         </main>

@@ -42,7 +42,7 @@ const ItemHomeSetting = () => {
       try {
         const res = await axios.post(apiURL + "/createitemhome", newItemHome);
         console.log(res);
-        window.location.replace("/");
+        // window.location.replace("/");
       } catch (error) {}
     }
   };

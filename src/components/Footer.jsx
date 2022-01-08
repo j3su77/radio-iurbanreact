@@ -71,7 +71,7 @@ const Footer = () => {
         </div>
 
         <div class="footer__content">
-          <h3 class="footer__title">We accept all credit cards</h3>
+          <h3 class="footer__title">Lorem ipsum, dolor sit amet consectetur adipisicing.</h3>
 
           <div class="footer__cards">
             <img src="assets/img/card1.png" alt="" class="footer__card" />
