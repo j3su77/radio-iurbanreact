@@ -12,11 +12,11 @@ export const Context = createContext(INITIAL_STATE);
 
 export const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(Reducer, INITIAL_STATE);
-  //  const apiURL = "https://radio-iurban-api.vercel.app/api"
-  // const apiUrlImg = "https://radio-iurban-api.vercel.app/images/"
+  const apiURL = "http://80.240.126.39:4000/api"
+   const apiUrlImg = "http://80.240.126.39:4000/images/"
 
-    const apiUrlImg = "http://localhost:4000/images/"
-   const apiURL = "http://localhost:4000/api"
+  // const apiUrlImg = "http://localhost:4000/images/"
+  // const apiURL = "http://localhost:4000/api"
 
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(state.user));
