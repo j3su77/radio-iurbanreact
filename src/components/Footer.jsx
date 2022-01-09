@@ -5,13 +5,14 @@ import {
   RiLeafLine,
 } from "react-icons/ri";
 import "../assets/css/footer.css";
+import IurbanSvg from "./svg/IurbanSvg";
 
 const Footer = () => {
   return (
     <footer class="footer section">
       <div class="footer__content-logo container">
         <a href="#" class="footer__logo">
-          <RiLeafLine classNameName="footer__logo-icon" />
+        <IurbanSvg className="nav__logo-icon" />
           iUrban Radio
         </a>
 

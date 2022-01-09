@@ -4,7 +4,7 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    background: #002D62;
+    background: var(--blue-color);
 }
 
 .loginTitle {
@@ -33,7 +33,7 @@
 .loginButton {
     margin-top: 20px;
     cursor: pointer;
-    background: teal;
+    background:teal;
     border: none;
     color: white;
     border-radius: 10px;

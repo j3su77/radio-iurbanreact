@@ -7,6 +7,7 @@ import { GiColombianStatue } from "react-icons/gi";
 
 import "../assets/css/navbar.css";
 import { Link } from "react-router-dom";
+import IurbanSvg from "./svg/IurbanSvg";
 //  import '../assets/js/main';
 const Navbar = () => {
   const { user, apiUrlImg, dispatch } = useContext(Context);
@@ -118,27 +119,27 @@ const Navbar = () => {
               {/* <!-- _____home______ --> */}
               <li className="nav__item">
                 <Link to="/" className="nav__link">
-                  Home
+                  Inicio
                 </Link>
               </li>
               {/* <!-- _____About______ --> */}
               <li className="nav__item">
-                <a href="#about" className="nav__link">
-                  About
+                <a href="#publicaciones" className="nav__link">
+                  publicaciones
                 </a>
               </li>
               {/* <!-- _____Products______ --> */}
-              <li className="nav__item">
+              {/* <li className="nav__item">
                 <a href="#products" className="nav__link">
-                  Products
+                lorem
                 </a>
-              </li>
+              </li> */}
               {/* <!-- _____FAQs______ --> */}
-              <li className="nav__item">
+              {/* <li className="nav__item">
                 <a href="#faqs" className="nav__link">
-                  FAQs
+                  lorem
                 </a>
-              </li>
+              </li> */}
 
             </ul>
 
@@ -173,7 +174,7 @@ const Navbar = () => {
            <div className="nav__content-userandlogo">
           <Link to="/" className="nav__logo">
             {/* <RiLeafLine classNameName="nav__logo-icon" /> */}
-            <GiColombianStatue className="nav__logo-icon" />
+            <IurbanSvg className="nav__logo-icon" />
             iUrban Radio
           </Link>
 
