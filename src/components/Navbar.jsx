@@ -1,16 +1,16 @@
 import { useState, useEffect, useContext, useRef } from "react";
 import { Context } from "../context/Context";
 
-import { RiLeafLine, RiCloseLine, RiMoonFill, RiSunFill } from "react-icons/ri";
+import {  RiCloseLine, RiMoonFill, RiSunFill } from "react-icons/ri";
 import { FaBars } from "react-icons/fa";
-import { GiColombianStatue } from "react-icons/gi";
+
 
 import "../assets/css/navbar.css";
 import { Link } from "react-router-dom";
 import IurbanSvg from "./svg/IurbanSvg";
 //  import '../assets/js/main';
 const Navbar = () => {
-  const { user, apiUrlImg, dispatch } = useContext(Context);
+  const { user, dispatch } = useContext(Context);
   const [open, setOpen] = useState(false);
   const [dark, setDark] = useState(true);
   const [openUser, setOpenUser] = useState(false);
@@ -86,8 +86,8 @@ const Navbar = () => {
 
          
 
-              {openUser && (
-                <div class="nav__user-dropdown"  ref={container}>
+              {user && openUser && (
+                <div className="nav__user-dropdown"  ref={container}>
                   <ul>
                     <div className="nav__user-content-username">
                       {user.username}
@@ -106,7 +106,7 @@ const Navbar = () => {
                         "nav__user-item"
                       }
                     >
-                       Cerrar sesión
+                      <span>Cerrar sesión</span> 
                     </div>
                   </ul>
                 </div>

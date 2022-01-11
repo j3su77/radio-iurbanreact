@@ -117,7 +117,7 @@ const PostSection = () => {
     const fetchPosts = async () => {
       const res = await axios.get(apiURL + "/posts/" + search);
       setPosts(res.data);
-      console.log(res);
+
       setIsLoading(false);
     };
     fetchPosts();
@@ -136,14 +136,14 @@ const PostSection = () => {
 
   
   return (
-    <section class="post__container container" id="products">
-      <h2 class="post__section-title section__title">{title}</h2>
+    <section className="post__container container" id="products">
+      <h2 className="post__section-title section__title">{title}</h2>
 
       {isLoading ? (
         <Spinner />
       ) : (
         <>
-          <div class="posts__content grid">
+          <div className="posts__content grid">
             {currentItems.map((post) => (
               <PostItem key={post._id} post={post} />
             ))}

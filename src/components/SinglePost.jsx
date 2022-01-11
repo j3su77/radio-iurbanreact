@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { Context } from "../context/Context";
 import dateformat from "dateformat";
 import { FaPen, FaTrashAlt, FaLink } from "react-icons/fa";
-import { FcCancel } from "react-icons/fc";
 import { MdCancel } from "react-icons/md";
 import Category from "./Category";
 
@@ -240,8 +239,8 @@ const SinglePost = () => {
           )}
 
           {updateMode && (
-              <div class="col-start-2 col-end-8 grid grid-cols-2 gap-2 justify-center items-center">
-              <h1 class="text-white my-10 col-span-full text-center">Categorias</h1>
+              <div className="col-start-2 col-end-8 grid grid-cols-2 gap-2 justify-center items-center">
+              <h1 className="text-white my-10 col-span-full text-center">Categorias</h1>
     
               {cats.map((cat, index) => (
                 <Category

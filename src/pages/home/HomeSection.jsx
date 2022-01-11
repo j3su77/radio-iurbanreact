@@ -12,6 +12,7 @@ import { RiArrowRightDownLine } from "react-icons/ri";
 import "./homesection.css";
 
 import { Link } from "react-router-dom";
+import { Spinner } from "reactstrap";
 
 
 
@@ -23,7 +24,7 @@ const HomeSection = () => {
 
   const { apiURL, apiUrlImg } = useContext(Context);
   const [items, setItems] = useState([]);
-  let link = "";
+ 
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -33,7 +34,7 @@ const HomeSection = () => {
       const res = await axios.get(apiURL + "/createitemhome");
       setItems(res.data);
 
-      console.log(res);
+  
       setIsLoading(false);
     };
     fetchItemHome();
@@ -41,8 +42,11 @@ const HomeSection = () => {
   }, []);
 
   return (
-    // <!--==================== HOME ====================-->
-    <section class="home" id="home">
+    <>
+    {
+      isLoading ?  ( <Spinner />) : (
+        // <!--==================== HOME ====================-->
+        <section className="home" id="home">
       <Swiper
         className="home__container container grid"
         spaceBetween={50}
@@ -53,32 +57,31 @@ const HomeSection = () => {
           delay: 3000,
           disableOnInteraction: false,
         }}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
+    
       >
           {items.map((item) => (
          
-         <SwiperSlide className={`swiperclass ${item.reverse && "reverse"}`}>
+         <SwiperSlide key={item._id} className={`swiperclass ${item.reverse && "reverse"}`}>
            <img
              src={apiUrlImg + "home/" + item.photo}
              alt=""
              className="home__img"
            />
 
-           <div class="home__data">
+           <div className="home__data">
              <div className="home__text-home">
-               <h1 class="home__title">{item.title}</h1>
-               <p class="home__description">{item.description}</p>
+               <h1 className="home__title">{item.title}</h1>
+               <p className="home__description">{item.description}</p>
              </div>
              
              { 
              item.button ? 
              item.linkbtn.includes("http") ? (
-               <a href={item.linkbtn} target="_blank" rel="noreferrer noopener" class="button button--flex">
+               <a href={item.linkbtn} target="_blank" rel="noreferrer noopener" className="button button--flex">
                  link <RiArrowRightDownLine className="button__icon" />
                </a>
              ) : (
-               <Link to={item.linkbtn} class="button button--flex">
+               <Link to={item.linkbtn} className="button button--flex">
                  Explore <RiArrowRightDownLine className="button__icon" />
                </Link>
              ) : ""}
@@ -86,10 +89,14 @@ const HomeSection = () => {
          </SwiperSlide>
        ))}
       
-        <div class="swiper-pagination"></div>
+        <div className="swiper-pagination"></div>
       </Swiper>
     </section>
-  );
+      )
+    }
+
+  </>
+   )
 };
 
 export default HomeSection;

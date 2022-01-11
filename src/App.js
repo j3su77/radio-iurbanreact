@@ -1,15 +1,13 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useContext } from "react";
-import Footer from './components/Footer';
 import Navbar from './components/Navbar';
-import ScrollUpButton from './components/ScrollUpButton';
 import Home from './pages/home/Home';
 import PostDetails from "./pages/postdetails/PostDetails";
 import Login from "./pages/login/Login"
 import {  Context } from "./context/Context";
 import './App.css';
 
-import AudioPlayer from "./components/radio/AudioPlayer";
+import RadioPlayer from "./components/radio/RadioPlayer";
 import EditCarousel from "./pages/settings/EditCarousel";
 
 function App() {
@@ -17,7 +15,7 @@ function App() {
   return (
     <Router>
       <Navbar />
-      < AudioPlayer />
+      < RadioPlayer />
       <Switch>
 
        <Route exact path="/post/:postId" component={PostDetails} />

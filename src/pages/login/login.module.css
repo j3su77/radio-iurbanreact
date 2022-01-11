@@ -20,14 +20,15 @@
 }
 
 .loginForm > label {
-    margin: 10px 0;
+    margin: .1rem 0;
+    color: #c1c1c1;
 }
 
 .loginInput {
     padding: 10px;
     background: white;
     border: none;
-    
+    margin-bottom: 1.5rem;
 }
 
 .loginButton {

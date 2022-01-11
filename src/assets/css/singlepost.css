@@ -7,6 +7,8 @@
   width: 100%;
   object-fit: cover;
   height: 300px;
+  aspect-ratio: 16 / 9;
+   
 }
 
 .edit__postsingle {

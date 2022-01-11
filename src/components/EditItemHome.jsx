@@ -1,15 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Context } from "../context/Context";
-import { Link } from "react-router-dom";
-
-import { FaPen, FaTrashAlt, FaLink } from "react-icons/fa";
+// import { Link } from "react-router-dom";
+import { FaPen, FaTrashAlt } from "react-icons/fa";
 import "../assets/css/edititemhome.css";
-
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Autoplay, Pagination } from "swiper";
 import Modal from "./Modal";
-import { holdReady } from "jquery";
+
 
 const EditItemHome = () => {
   const { apiURL, apiUrlImg } = useContext(Context);
@@ -20,7 +17,6 @@ const EditItemHome = () => {
       const res = await axios.get(apiURL + "/createitemhome");
       setItems(res.data);
 
-      console.log({ res: res.data });
     };
     fetchItemHome();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -58,7 +54,7 @@ const EditItemHome = () => {
 
   return (
     <div className="edititemhome__container container">
-      <h2 class="section__title">Elementos del carrusel</h2>
+      <h2 className="section__title">Elementos del carrusel</h2>
 
       <Swiper
         className="home__container container grid"
@@ -78,21 +74,21 @@ const EditItemHome = () => {
               className="edititemhome__item-img"
             />
 
-            <div class="edititemhome__item-data">
-              <h3 class="edititemhome__item-title">{item.title}</h3>
-              <span class="edititemhome__item-description">
+            <div className="edititemhome__item-data">
+              <h3 className="edititemhome__item-title">{item.title}</h3>
+              <span className="edititemhome__item-description">
                 {item.description}
               </span>
             </div>
 
             <button
               onClick={() => handleDelete(item)}
-              class="edititemhome__item-btnDel"
+              className="edititemhome__item-btnDel"
             >
               <FaTrashAlt className="edititemhome__delete-icon" />
             </button>
 
-            <button class="edititemhome__item-btnEdit">
+            <button className="edititemhome__item-btnEdit">
               <FaPen className="edititemhome__edit-icon" />
             </button>
           </SwiperSlide>

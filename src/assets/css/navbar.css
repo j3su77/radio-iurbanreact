@@ -30,7 +30,6 @@
   }
   
   .nav__logo {
-    /* text-transform: uppercase; */
     font-weight: 700;
     letter-spacing: -1px;
     display: inline-flex;
@@ -39,17 +38,20 @@
     transition: .3s;
     
   }
-  
+
   .nav__logo-icon  {
     fill: var(--title-color);
     width: 20px;
   }
 
- 
-  
   .nav__logo:hover {
-    color: var(--first-color);
+    color: rgb(151, 151, 151)  ;
+    
   }
+  
+  /* .nav__content-userandlogo .nav__logo:hover ~ .nav__content-userandlogo .nav__logo-icon {
+    fill: rgb(151, 151, 151) !important ;
+  } */
 
   .nav__user {
     width: 2.3rem;
@@ -92,16 +94,15 @@
     color: var(--title-color);
     padding: .4rem 1rem;
     font-size: var(--normal-font-size);
-     font-weight: var(--font-thin);
+     font-weight: var(--font-semi-bold);
      border-bottom: 1px solid var(--title-color);
+     text-align: center;
   }
   .nav__user-item:hover {
     background-color: var(--body-color);
   }
 
-  .nav__user-item:first-child {
-    border-top: 1px solid var(--title-color);
-  }
+ 
   .nav__user-item:last-child {
     border-bottom: none;
   }
@@ -117,7 +118,7 @@
   @media screen and (max-width: 767px) {
     .nav__menu {
       position: fixed;
-      background-color: var(--container-color);
+      background-color: var(--body-color);
       width: 60%;
       height: 100%;
       top: 0;

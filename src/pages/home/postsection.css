@@ -39,6 +39,8 @@
 .post__img {
   width: 100%;
   transition: .3s;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
 }
 
 .post__title {

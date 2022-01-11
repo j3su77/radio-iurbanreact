@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState,  useContext } from "react";
 import axios from "axios";
 import { Context } from "../context/Context";
 import { FaUpload } from "react-icons/fa";
@@ -12,7 +12,7 @@ const ItemHomeSetting = () => {
   const [desc, setDesc] = useState("");
   const [file, setFile] = useState(null);
   const [link, setLink] = useState("");
-  const { user, apiURL, apiUrlImg } = useContext(Context);
+  const { user, apiURL } = useContext(Context);
   const [checkedLink, setCheckedLink] = useState(false);
   const [checkedReverse, setCheckedReverse] = useState(false);
 
@@ -41,8 +41,7 @@ const ItemHomeSetting = () => {
       } catch (error) {}
       try {
         const res = await axios.post(apiURL + "/createitemhome", newItemHome);
-        console.log(res);
-        // window.location.replace("/");
+        window.location.replace("/");
       } catch (error) {}
     }
   };
@@ -79,13 +78,13 @@ const ItemHomeSetting = () => {
               </label>
             </>
           ) : (
-            <label class="button">
-              <FaUpload class="itemhomesetting__icon" />
+            <label className="button">
+              <FaUpload className="itemhomesetting__icon" />
               cambiar una imagen
               <FormInput
                 type="file"
                 id="fileInput"
-                class="hidden"
+                className="hidden"
                 onChange={(e) => setFile(e.target.files[0])}
               />
             </label>
@@ -94,7 +93,7 @@ const ItemHomeSetting = () => {
 
         {/*----------- title -------------*/}
         <div>
-          <div class="form__group field itemhomesetting__content-title">
+          <div className="form__group field itemhomesetting__content-title">
             <FormInput
              required={true}
              name="title"
@@ -105,7 +104,7 @@ const ItemHomeSetting = () => {
              
               onChange={(e) => setTitle(e.target.value)}
             />
-            <label for="name" class="form__label">
+            <label htmlFor="name" className="form__label">
               titulo
             </label>
           </div>
@@ -123,7 +122,7 @@ const ItemHomeSetting = () => {
             
               onChange={(e) => setDesc(e.target.value)}
             />
-            <label for="name" class="form__label">
+            <label htmlFor="name" className="form__label">
               descripción
             </label>
           </div>
@@ -137,7 +136,7 @@ const ItemHomeSetting = () => {
               onChange={() => setCheckedReverse(!checkedReverse)}
             />
 
-            <label for="switchw">Toggle</label>
+            <label htmlFor="switchw">Toggle</label>
             <span className="span-text">invertir orden</span>
           </div>
 
@@ -147,12 +146,12 @@ const ItemHomeSetting = () => {
               id="switch"
               onChange={() => setCheckedLink(!checkedLink)}
             />
-            <label for="switch">Toggle</label>
+            <label htmlFor="switch">Toggle</label>
             <span className="span-text">ingresar link</span>
           </div>
         </div>
 
-        <div class="form__group field itemhomesetting__content-link">
+        <div className="form__group field itemhomesetting__content-link">
           {
             checkedLink && (
               <>
@@ -168,7 +167,7 @@ const ItemHomeSetting = () => {
               required={true}
            
             />
-            <label for="name" class="form__label">
+            <label htmlFor="name" className="form__label">
               link
             </label>
             </>

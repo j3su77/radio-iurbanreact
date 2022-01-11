@@ -17,7 +17,7 @@ const Category = ({ id, cat, cate, onChange = () => {} }) => {
     <div className="bg-gray-800">
       <div className={" text-white p-1 " + (select && " bg-blue-600")}>
         <label
-          class={
+          className={
             " col-span-1 flex justify-start items-center" +
             (select && " bg-blue-800")
           }
@@ -29,7 +29,7 @@ const Category = ({ id, cat, cate, onChange = () => {} }) => {
             type="checkbox"
             className="bg-red-600 w-7 h-7 mr-2 border border-gray-300 rounded cursor-pointer "
           />
-          <span class="font-semibold text-lg text-justify mx-auto">
+          <span className="font-semibold text-lg text-justify mx-auto">
             {" "}
             {cat.name}
           </span>
