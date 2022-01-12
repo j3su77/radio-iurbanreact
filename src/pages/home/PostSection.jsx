@@ -15,7 +15,7 @@ const PostSection = () => {
   const location = useLocation();
   const searchPath = [];
   const { search } = useLocation();
-  let title = "Publicacioness";
+  let title = "Publicaciones";
   searchPath.push(location.search.split("=")[0]);
   searchPath.push(location.search.split("=")[1]);
 

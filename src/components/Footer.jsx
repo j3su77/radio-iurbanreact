@@ -36,7 +36,7 @@ const Footer = () => {
         </div>
 
         <div className="footer__content">
-          <h3 className="footer__title">Contact Us</h3>
+          <h3 className="footer__title">Contactanos</h3>
 
           <ul className="footer__data">
             <li className="footer__information">+999 888 777</li>
@@ -81,7 +81,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <p className="footer__copy">&#169; J3su. All rigths reserved</p>
+      <p className="footer__copy">&#169; {new Date().getFullYear()} J3su. Todos los derechos reservados.</p>
     </footer>
   );
 };

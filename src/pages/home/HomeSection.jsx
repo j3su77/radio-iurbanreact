@@ -12,7 +12,7 @@ import { RiArrowRightDownLine } from "react-icons/ri";
 import "./homesection.css";
 
 import { Link } from "react-router-dom";
-import { Spinner } from "reactstrap";
+import  Spinner  from "../../components/Spinner";
 
 
 
@@ -94,6 +94,14 @@ const HomeSection = () => {
     </section>
       )
     }
+    <div className="box">
+          <div className="box-sm red"></div>
+          <div className="box-sm orange"></div>
+          <div className="box-sm yellow "></div>
+          <div className="box-sm green "></div>
+          <div className="box-sm blue "></div>
+          <div className="box-sm purple"></div>
+        </div>
 
   </>
    )
