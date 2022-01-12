@@ -34,7 +34,7 @@
   --bounce-offset: -40px;
   animation-duration: 600ms;
 }
-section {
+.container__spinner section {
   display: flex;
   gap: 16px;
 }
