@@ -42,19 +42,19 @@ const HomeSection = () => {
   }, []);
 
   return (
-    <>
+    <div style={{width: "100%", padding: "0"}}>
     {
       isLoading ?  ( <Spinner />) : (
         // <!--==================== HOME ====================-->
         <section className="home" id="home">
       <Swiper
-        className="home__container container grid"
-        spaceBetween={50}
+        className="home__container grid"
+        spaceBetween={0}
         slidesPerView={1}
         pagination={{ clickable: true, el: ".swiper-pagination" }}
         loop={true}
         autoplay={{
-          delay: 3000,
+          delay: 5000,
           disableOnInteraction: false,
         }}
     
@@ -103,7 +103,7 @@ const HomeSection = () => {
           <div className="box-sm purple"></div>
         </div>
 
-  </>
+  </div>
    )
 };
 

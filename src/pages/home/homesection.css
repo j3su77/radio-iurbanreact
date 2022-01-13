@@ -4,6 +4,7 @@
 }
 
 .home__container {
+  max-width: 968px;
   position: relative;
   row-gap: 2rem;
 }
