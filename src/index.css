@@ -237,6 +237,27 @@ the website, in dark theme
   transform: translateX(.25rem);
 }
 
+.normal--text {
+  font-size: var(--normal-font-size);
+}
+
+.small--text {
+  font-size: var(--small-font-size);
+}
+
+.flex--l {
+  justify-self: flex-start;
+}
+.flex--r {
+  justify-self: flex-end;
+}
+
+.shadow {
+  -webkit-filter: drop-shadow(3px 3px 5px #111);
+  filter: drop-shadow(3px 3px 5px #111);
+}
+
+
 
 /*=============== Form styles ===============*/
 

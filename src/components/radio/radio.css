@@ -56,6 +56,11 @@
   --animate-duration: 4s;
   --animate-delay: 2s !important;
 }
+.animate__animated.animate__slideInUp {
+  --animate-duration: 4s;
+  --animate-delay: 2s !important;
+}
+
 
 .radio-container .radio-body .radio-buttons .button-player {
   color: var(--white);
@@ -64,6 +69,12 @@
 .radio-container .radio-body .radio-buttons .button-player:hover {
   color: rgba(255, 255, 255, 0.8);
 }
+.radio-container .radio-body .button-player-loading {
+  margin: auto;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+}
 
 .radio-container .radio-body .wave-bars {
   position: absolute;
@@ -71,13 +82,13 @@
   display: flex;
   z-index: 1;
   height: 100%;
-  top: 0;
+  top: -30px;
 
 
 }
 .radio-container .radio-body .wave-bars .wave {
   margin-top: 24px;
-  transform: translateY(-50%);
+  transform: translateY(0%);
   height: 3px;
   width: 0.8vmin;
   background: var(--white);
@@ -86,7 +97,7 @@
   flex-wrap: wrap;
   position: relative;
   z-index: 501;
-  transition-delay: 5s;
+  transition-delay: 1s !important;
 }
 .radio-container .radio-body .wave-bars .wave:first-child {
   margin-left: 2px;
@@ -113,6 +124,7 @@
   animation: stopwaves 1s linear;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+ 
 }
 
 .audio-player {
@@ -127,9 +139,7 @@
 .radio-lid {
   background: inherit;
   height: max-content;
-  top: -52px;
-  left: 0;
-  right: 0;
+ 
   width: 99.7%;
   margin: auto;
   position: absolute;
@@ -144,18 +154,32 @@
   border-right: rgba(255, 255, 255, 0.116);
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
   border-radius: 7px;
+ 
 
-  /* background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
-  border: 3px solid rgba(255, 255, 255, 0.356);
-  position: absolute;
-  backdrop-filter: blur(2px);
- -webkit-backdrop-filter: blur(2px);
-  display: block;
-  margin: 0 auto;  */
  
 }
+.radio-lid.slide-bottom {
+  top: -100px;
+  left: 0;
+  right: 0;
+}
 
+.radio-lid.slide-top {
+  top: -50px;
+  left: 0;
+  right: 0;
+}
+
+
+
+.slide-bottom {
+	-webkit-animation: slide-bottom 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-bottom 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+.slide-top {
+	-webkit-animation: slide-top 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-top 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
 
 .audio-controls {
   display: flex;
@@ -179,6 +203,22 @@
 
 .audio-controls .play svg,
 .audio-controls .pause svg {
+  height: 25px;
+  width: 25px;
+  padding: 3px;
+  position: absolute;
+  z-index: 1050;
+  background-color: var(--main-color);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  -webkit-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.75);
+}
+.audio-controls .loading svg {
   height: 30px;
   width: 30px;
   padding: 3px;
@@ -189,9 +229,9 @@
   right: 0;
   left: 0;
   margin: auto;
-  -webkit-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.75);
+ border-radius: 50%;
+ border: 2px solid var(--title-color);
+ transition:2s;
 }
 
 .audio-controls .play svg {
@@ -237,6 +277,71 @@
   position: absolute;
   bottom: 0px;
   z-index: 1015;
+}
+
+/*
+ * ----------------------------------------
+ * animation slide-bottom
+ * ----------------------------------------
+ */
+ @-webkit-keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+  }
+}
+@keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+  }
+}
+
+
+
+
+/*
+ * ----------------------------------------
+ * animation slide-top
+ * ----------------------------------------
+ */
+ @-webkit-keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
+  }
+}
+@keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
+  }
+}
+
+
+@keyframes slide-lid-out {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
 }
 
 @-webkit-keyframes background-scroll {

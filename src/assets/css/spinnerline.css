@@ -1,0 +1,23 @@
+.spinner-line {
+  width: 22px;
+  height: 22px;
+  justify-self: center;
+  margin: 2px auto;
+  fill: var(--title-color);
+  background: transparent;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.spinner-line {
+  animation: spin 1000ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}

@@ -32,14 +32,14 @@ const EditItemHome = () => {
     setModal1(false);
   };
 
-  const handleDelete = (item) => {
+  function handleDelete(item)  {
     setModal1(!modal1);
-    setIdDelete(item._id);
+     setIdDelete(item);
   };
 
   const itemDelete = async () => {
     try {
-      await axios.delete(apiURL + "/createitemhome/" + idDelete, {
+      await axios.delete(apiURL + "/createitemhome/" + idDelete._id, {
         data: {
           id: idDelete,
         },
@@ -94,17 +94,48 @@ const EditItemHome = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <Modal state={modal1} changeState={setModal1}>
-        <h2>modal 1</h2>
-        <p>Lorem ipsum voluptatibus repellenum voluptatum?</p>
-        <p>{idDelete}</p>
+
+      {/* -----------Modal Delete Item Home---------- */}
+      <Modal
+       title="Eliminar item" 
+       state={modal1}
+        changeState={setModal1}>
+        
+        <div className="modal__body-delete">
+          <div className="modal__body-title">
+            <h3>
+              ¿Estás seguro que deseas eliminar el siguiente item?
+            </h3>
+          </div>
+        <div className="modal__body-info">
+        <img className="modal__body-info-img shadow"
+         src={apiUrlImg + "home/" + idDelete.photo}
+         alt=""  
+         style={{width: "100px"}}
+         />
+        <div>
+        <p className="modal__body-info-title">{idDelete.title}</p>
+        </div>
+       <div>
+        <p className="modal__body-info-description">{idDelete.description}</p>
+       </div>
+        </div>
+        <div className="modal__content-btns-acceptdeny">
         <button
-          className="edititemhome__item-btn-modal"
+          className="modal__btn-accept "
           onClick={() => question(true)}
         >
-          si
+          Eliminar
         </button>
-        <button onClick={() => question(false)}>no</button>
+        <button 
+        className="modal__btn-cancel "
+         onClick={() => question(false)}
+         >
+          Cancelar
+          </button>
+        </div>
+        </div>
+        
       </Modal>
     </div>
   );

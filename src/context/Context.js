@@ -1,4 +1,4 @@
-import { createContext, useEffect, useReducer } from "react";
+import { createContext, useEffect, useReducer, useState } from "react";
 import Reducer from "./Reducer";
 
 
@@ -17,7 +17,7 @@ export const ContextProvider = ({ children }) => {
 
   // const apiUrlImg = "http://localhost:4000/images/"
   // const apiURL = "http://localhost:4000/api"
-
+ 
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(state.user));
   }, [state.user]);
@@ -30,7 +30,9 @@ export const ContextProvider = ({ children }) => {
         error: state.error,
         dispatch,
         apiURL,
-        apiUrlImg
+        apiUrlImg,
+    
+        
       }}
     >
       {children}
