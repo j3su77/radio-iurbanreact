@@ -9,15 +9,18 @@ import './App.css';
 
 import RadioPlayer from "./components/radio/RadioPlayer";
 import EditCarousel from "./pages/settings/EditCarousel";
+import ScrollToTop from "./components/ScrollTop";
 
 function App() {
   const { user } = useContext(Context);
   return (
     <Router>
+      <ScrollToTop />
+
       <Navbar />
       < RadioPlayer />
       <Switch>
-
+        
        <Route exact path="/post/:postId" component={PostDetails} />
        <Route exact path="/login" component={user ? Home : Login} />
        <Route exact path="/editcarousel" component={user ? EditCarousel : Login} />
